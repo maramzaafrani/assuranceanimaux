@@ -1,0 +1,53 @@
+{% extends 'admin/Base.html.twig'%}
+
+{% block title %}Reclamation{% endblock %}
+
+{% block body %}
+
+
+<div style='margin-left: 20% ;'>
+    <h1>Reclamation</h1>
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <table class="card" >
+                            <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ reclamation.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>IdBilan</th>
+                                    <td>{{ reclamation.IdBilan }}</td>
+                                </tr>
+                                <tr>
+                                    <th>IdClient</th>
+                                    <td>{{ reclamation.IdClient }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Text</th>
+                                    <td>{{ reclamation.Text }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Etat</th>
+                                    <td>{{ reclamation.Etat }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style=" margin-bottom: 10px;">
+                            <a href="{{ path('app_reclamations_index') }}" class=" btn btn-dark">back to list</a>
+
+                            <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class=" btn btn-warning">edit</a>
+                        </div> 
+                        
+                        {{ include('reclamation/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            <div>
+        </div>
+    </div>
+</div>
+{% endblock %}

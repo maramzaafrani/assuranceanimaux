@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<title>Typecontrat </title>
+
+{% block body %}
+    <h1>Typecontrat </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TypeContrat</th>
+                <th>Prix</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for typecontrat in typecontrats %}
+            <tr>
+                <td>{{ typecontrat.id }}</td>
+                <td>{{ typecontrat.typeContrat }}</td>
+                <td>{{ typecontrat.prix }}</td>
+                <td>
+                    <a href="{{ path('app_typecontrat_show', {'id': typecontrat.id}) }}">show</a>
+                    <a href="{{ path('app_typecontrat_edit', {'id': typecontrat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_typecontrat_new') }}">Create new</a>
+{% endblock %}

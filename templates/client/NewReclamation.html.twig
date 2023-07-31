@@ -1,0 +1,102 @@
+{% extends 'client/base.html.twig' %}
+
+{% block title %}Hello ClientController!{% endblock %}
+
+{% block body %}
+
+<!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section bg-img cover-background left-overlay-dark" data-overlay-dark="8" data-background="{{asset('assets/client/img/banner/page-title.jpg')}}">
+            <div class="container">
+                <div class="page-title mx-1-6 mx-lg-2-0 mx-xl-2-6 mx-xxl-2-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Ajouter une reclamation</h1>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="ps-0">
+                                <li><a href="index-2.html">Home</a></li>
+                                <li><a href="#!">Espace client</a></li>
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-inline-block p-3 rounded-circle bg-primary position-absolute z-index-1 top-35 right-20 ani-top-bottom"></div>
+            <div class="d-inline-block p-2 rounded-circle bg-secondary position-absolute z-index-1 top-25 left-10 ani-top-bottom"></div>
+            <div class="d-inline-block bg-white p-3 ani-zoomin rounded-circle position-absolute bottom-5 left-10 opacity1 z-index-1"></div>
+        </section>
+
+  <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 wow fadeIn" data-wow-delay="200ms">
+
+                        <div class="position-relative elements-block">
+
+                            <div class="inner-title">
+                                <h2 class="mb-0">Ajouter une reclamation</h2>
+                            </div>
+
+                            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}})}}
+                                <div class="quform-elements">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="quform-element">
+                                                <div >{{form_label(form.IdBilan,"IdBilan")}} <span class="quform-required"> *</span> </div>
+                                                {{ form_widget(form.IdBilan,{'attr':{'class':'form-control'}}) }}
+                                                {{ form_errors(form.IdBilan,{'attr':{'class':'text-danger'}})}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="quform-element">
+                                                <div >{{form_label(form.IdClient,"IdClient")}} <span class="quform-required"> *</span> </div>
+                                                {{ form_widget(form.IdClient,{'attr':{'class':'form-control'}}) }}</span></div>
+                                                {{ form_errors(form.IdClient,{'attr':{'class':'text-danger'}})}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="quform-element">
+                                                <div >{{form_label(form.Text,"Text")}} <span class="quform-required"> *</span> </div>
+                                                {{ form_widget(form.Text,{'attr':{'class':'form-control'}}) }}</span></div>
+                                                {{ form_errors(form.Text,{'attr':{'class':'text-danger'}})}}
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                        
+                                        {# <div class="col-md-6">
+                                            <div class="quform-element">
+                                                <div >{{form_label(form.Etat,"Etat")}} <span class="quform-required"> *</span> </div>
+                                                {{ form_widget(form.Etat,{'attr':{'class':'form-control'}}) }}</span></div>
+                                                {{ form_errors(form.Etat,{'attr':{'class':'text-danger'}})}}
+                                            </div>
+                                        </div> #}
+
+
+                                        <div class"col-md-12"> 
+                                            <div class="quform-element">
+                                                <button class="butn-style3">{{ button_label|default('Ajouter reclamation ') }}</button>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {{ form_end(form) }}
+
+                          
+
+                          
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+{% endblock %}

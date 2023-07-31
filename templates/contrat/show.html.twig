@@ -1,0 +1,58 @@
+{% extends 'admin/Base.html.twig'%}
+
+{% block body %}
+
+
+<div style='margin-left: 20% ;'>
+    <h1>contrat</h1>
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contrat.id }}</td>
+            </tr>
+            <tr>
+                <th>NomClient</th>
+                <td>{{ contrat.NomClient }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ contrat.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ contrat.Tel }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ contrat.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contrat.Email }}</td>
+            </tr>
+            <tr>
+                <th>Datededebut</th>
+                <td>{{ contrat.Datededebut }}</td>
+            </tr>
+            <tr>
+                <th>Datedefin</th>
+                <td>{{ contrat.Datedefin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style=" margin-bottom: 10px;">
+    <a href="{{ path('app_contrat_index') }}" class=" btn btn-dark">back to list</a>
+
+    <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}" class=" btn btn-warning">edit</a>
+
+    {{ include('contrat/_delete_form.html.twig') }}
+{% endblock %}

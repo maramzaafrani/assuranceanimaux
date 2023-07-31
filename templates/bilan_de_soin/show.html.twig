@@ -1,0 +1,59 @@
+{% extends 'admin/Base.html.twig'%}
+
+{% block body %}
+
+
+<div style='margin-left: 20% ;'>
+    <h1>BilanDeSoin</h1>
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <table class="card" >
+                            <tbody>
+                                <tr>
+                                    <th >Id</th>
+                                    <td >{{ bilan_de_soin.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>IdClient</th>
+                                    <td>{{ bilan_de_soin.IdClient }}</td>
+                                </tr>
+                                <tr>
+                                    <th>IdVeterinaire</th>
+                                    <td>{{ bilan_de_soin.IdVeterinaire }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Animal</th>
+                                    <td>{{ bilan_de_soin.Animal }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ bilan_de_soin.Description }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Prix</th>
+                                    <td>{{ bilan_de_soin.Prix }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Etat</th>
+                                    <td>{{ bilan_de_soin.etat }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style=" margin-bottom: 10px;">
+                            <a href="{{ path('app_bilan_de_soin_index') }}" class=" btn btn-dark">back to list</a>
+
+                            <a href="{{ path('app_bilan_de_soin_edit', {'id': bilan_de_soin.id}) }}" class=" btn btn-warning">edit</a>
+                        </div> 
+                        
+                        {{ include('bilan_de_soin/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            <div>
+        </div>
+    </div>
+</div>
+{% endblock %}

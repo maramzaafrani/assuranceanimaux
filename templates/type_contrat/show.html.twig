@@ -1,0 +1,40 @@
+{% extends 'admin/Base.html.twig'%}
+
+{% block body %}
+
+
+<div style='margin-left: 20% ;'>
+    <h1>contrat</h1>
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ typecontrat.id }}</td>
+            </tr>
+            <tr>
+                <th>TypeContrat</th>
+                <td>{{ typecontrat.typeContrat }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ typecontrat.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+   <div style=" margin-bottom: 10px;">
+    <a href="{{ path('app_typecontrat_index') }}" class=" btn btn-dark">back to list</a>
+
+    <a href="{{ path('app_typecontrat_edit', {'id': typecontrat.id}) }}" class=" btn btn-warning">edit</a>
+
+    {{ include('type_contrat/_delete_form.html.twig') }}
+
+   
+{% endblock %}
+

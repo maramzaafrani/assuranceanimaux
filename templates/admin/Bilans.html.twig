@@ -1,0 +1,102 @@
+
+
+{%extends 'admin/Base.html.twig'%}
+
+{% block body %}
+
+
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "  style='margin-left: 20% ;'>
+
+    <div class="container-fluid py-4">
+        <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Table des bilans </h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+
+
+              {% if bilans %}
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs  opacity-7">Id_Bilan</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Id_Client</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id-veterinaire</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Animal</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prix</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Etat</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  {% for bilan in bilans %}
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center"> 
+                            <p class="text-xs font-weight-bold mb-0">{{bilan.id}}</p>  
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">{{bilan.Idclient}}</p>  
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0">{{bilan.Idveterinaire}}</p>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{bilan.animal}}</span>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold">{{bilan.description}}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{bilan.prix}}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        {% if bilan.etat =='refusé' %}
+                          <span class="badge rounded-pill bg-danger">{{bilan.etat}}</span>
+                        {% elseif bilan.etat =='accepté' %}
+                          <span class="badge rounded-pill bg-success">{{bilan.etat}}</span>
+                        {% else %}
+                          <span class="badge rounded-pill bg-secondary">{{bilan.etat}}</span>
+                        {% endif %}                  
+                      </td>
+                      <td class="align-middle">
+                      
+                        <a href="{{ path('app_bilan_de_soin_edit', {'id': bilan.id}) }}" class="btn btn-warning text-dark px-3 mb-0 " data-toggle="tooltip" data-original-title="Edit user">
+                          Modifier
+                        </a>
+                        <a href="{{ path('app_bilan_de_soin_showA', {'id': bilan.id}) }}" class="btn btn-danger text-gradient px-3 mb-0" data-toggle="tooltip" data-original-title="Edit user">
+                          Supprimer 
+                        </a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                    
+                  </tbody>
+                </table>
+                {% endif %}
+                <a href="{{ path('app_bilan_de_soin_new2') }}" class="btn btn-success text-gradient px-3 mb-0">Create new</a>
+                  
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </main>
+  
+  {% endblock %}
+ 
